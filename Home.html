@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPU Park</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Prompt", sans-serif;
+        background-color: #fff;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .logo span {
+        background: #ff80bf;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 8px;
+        margin-right: 5px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      .nav-links a.active {
+        color: #008cff;
+        font-weight: bold;
+      }
+
+      .nav-links .login {
+        background: #008cff;
+        color: white;
+        padding: 8px 25px;
+        border-radius: 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(215, 236, 255, 0.3),
+            rgba(215, 236, 255, 0.8)
+          ),
+          url("../image/banner.png") no-repeat center/cover;
+        text-align: center;
+        padding: 100px 20px;
+        position: relative;
+        color: #000;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .hero button {
+        background: #008cff;
+        color: white;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      /* Features Section */
+      .features {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 50px auto;
+        max-width: 1100px;
+        flex-wrap: wrap;
+      }
+
+      .feature-card {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+        padding: 30px 20px;
+        flex: 1;
+        min-width: 250px;
+        text-align: center;
+        transition: transform 0.2s ease, box-shadow 0.5s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      .feature-icon {
+        width: 157px;
+        height: 139px;
+        margin: 0 auto 10px;
+        border-radius: 20px;
+        background: linear-gradient(145deg, #d8f0ff, #1fa6fa);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        color: #fff;
+      }
+
+      .feature-card h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #222;
+      }
+
+      .feature-card p {
+        font-size: 15px;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* ===== Spots Section ===== */
+      .spots {
+        max-width: 1100px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .spots-left {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .spots-left h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .spot-row {
+        display: flex;
+        gap: 45px;
+      }
+
+      .spot-card {
+        background: #f5f5f5;
+        border-radius: 15px;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 75px;
+        min-width: 160px;
+        font-size: 22px;
+        font-weight: 200;
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .spot-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      .spot-card strong {
+        font-size: 24px;
+        font-weight: bold;
+        color: #222;
+      }
+
+      .spot-card span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .spot-card img {
+        width: 90px;
+        height: auto;
+      }
+
+      .spots-right {
+        background: linear-gradient(145deg, #d8f0ff, #1fa6fa);
+        border-radius: 20px;
+        padding: 5px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+        font-size: 32px;
+        font-weight: bold;
+        color: #222;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        margin-top: 80px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .spots-right:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
+      }
+
+      .spots-right img {
+        width: 220px;
+        height: 200px;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 5px;
+        background: #f5f5f5;
+        margin-top: 100px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* Popup Overlay (ว่างไว้ รอโหลดจาก Login.html) */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo"><span>SPU</span>Park</div>
+      <div class="nav-links">
+        <a class="login" id="openLogin">LOG IN</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>ระบบจองที่จอดรถ</h1>
+      <p>มหาวิทยาลัยของเรา - จองที่จอดรถได้ง่ายๆ ผ่านระบบออนไลน์ที่ทันสมัย</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>จองได้ทันที</h3>
+        <p>ระบบประมวลผลรวดเร็ว<br />จองและได้รับการยืนยันภายในไม่กี่วินาที</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🚀</div>
+        <h3>ใช้งานได้ทุกที่</h3>
+        <p>รองรับทุกอุปกรณ์ ไม่ว่าจะเป็นมือถือ แท็บเล็ต<br />หรือคอมพิวเตอร์</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🏢</div>
+        <h3>ครอบคลุมทั่วมหาลัย</h3>
+        <p>มีที่จอดรถให้เลือกครบทุกตึก A, B, C, และ D</p>
+      </div>
+    </section>
+
+    <!-- Spots Section -->
+    <section class="spots">
+      <div class="spots-left">
+        <h2>Available Spots</h2>
+        <div class="spot-row">
+          <div class="spot-card">
+            <div class="spot-info">
+              <strong>Zone A</strong><br />
+              <span>25/50</span>
+            </div>
+            <img src="../image/car.png" alt="car" />
+          </div>
+          <div class="spot-card">
+            <div class="spot-info">
+              <strong>Zone B</strong><br />
+              <span>12/50</span>
+            </div>
+            <img src="../image/car.png" alt="car" />
+          </div>
+        </div>
+        <div class="spot-row">
+          <div class="spot-card">
+            <div class="spot-info">
+              <strong>Zone C</strong><br />
+              <span>25/50</span>
+            </div>
+            <img src="../image/car.png" alt="car" />
+          </div>
+          <div class="spot-card">
+            <div class="spot-info">
+              <strong>Zone D</strong><br />
+              <span>12/50</span>
+            </div>
+            <img src="../image/car.png" alt="car" />
+          </div>
+        </div>
+      </div>
+
+      <div class="spots-right">
+        <span>12/200</span>
+        <img src="../image/scooter.png" alt="car" />
+      </div>
+    </section>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 SPU Park. All rights reserved.</p>
+      <p>
+        Kansuda Prasitmaneerat , Posatorn Yen-ura , Napa Phakeeree , Yanichsa
+        Ploychoo , Kittitus Udomkanyingyos
+      </p>
+    </footer>
+
+    <!-- Script สำหรับโหลด popup -->
+    <script>
+      const openBtn = document.getElementById("openLogin");
+      const popupOverlay = document.getElementById("popupOverlay");
+
+      openBtn.addEventListener("click", () => {
+        fetch("Login.html")
+          .then((response) => response.text())
+          .then((html) => {
+            popupOverlay.innerHTML = html;
+            popupOverlay.style.display = "flex";
+
+            const closeBtn = popupOverlay.querySelector("#closePopup");
+            if (closeBtn) {
+              closeBtn.addEventListener("click", () => {
+                popupOverlay.style.display = "none";
+              });
+            }
+          });
+      });
+
+      popupOverlay.addEventListener("click", (e) => {
+        if (e.target === popupOverlay) {
+          popupOverlay.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
