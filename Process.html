@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPU Park - Process</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Prompt", sans-serif;
+        background: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .popup {
+        height: 410px;
+        background: #fff;
+        border-radius: 70px;
+        padding: 20px 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        width: 400px;
+        text-align: center;
+        position: relative;
+        display: none; /* ซ่อน popup เริ่มต้น */
+      }
+
+      .popup.active {
+        display: block; /* แสดง popup ที่เลือก */
+      }
+
+      .popup img {
+        width: 150px;
+        margin-bottom: -42px;
+      }
+
+      .popup h2 {
+        font-size: 22px;
+        margin: 30px 0 5px 0;
+        font-weight: bold;
+      }
+
+
+      .detail-box {
+        background: #fff;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        margin-bottom: 25px;
+        text-align: left;
+        font-size: 15px;
+        line-height: 1.6em;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        border-radius: 30px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 0 5px;
+      }
+
+      .btn-cancel {
+        background: linear-gradient(145deg, #e9a1a1, #ff1717);
+        color: white;
+        box-shadow: 0 4px 10px rgba(255, 90, 90, 0.4);
+      }
+
+      .btn-cancel:hover {
+        background: #e14d4d;
+      }
+
+      .btn-confirm {
+        background: linear-gradient(145deg, #d8f0ff, #3bb4ff);
+        color: white;
+        box-shadow: 0 4px 10px rgba(77, 184, 255, 0.4);
+      }
+
+      .btn-confirm:hover {
+        background: #309fe6;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Popup 1 -->
+    <div class="popup active" id="popup1">
+      <img src="../image/check.png" alt="check" />
+      <h2>ยืนยันที่จอดรถ</h2>
+      <p>คุณต้องการยืนยันที่จอดรถ</p>
+
+      <div class="detail-box">
+        <b>ชื่อ :</b> โทนี่ แบล็คเวิร์ด <br />
+        <b>โซน :</b> A <br />
+        <b>เวลา :</b> 13:30 PM
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-cancel">ยกเลิกการจอง</button>
+        <button class="btn btn-confirm" id="confirmBtn">ยืนยันการจอง</button>
+      </div>
+    </div>
+
+    <!-- Popup 2 -->
+    <div class="popup" id="popup2">
+      <img src="../image/check.png" alt="check" />
+      <h2>คุณจองสำเร็จ</h2>
+      <h2>จอดที่ : โซน A</h2>
+      <p style="font-size:13px; color:#999;">กรุณาจอดให้ตรงกับโซนที่จอง</p>
+      <button class="btn btn-confirm" style="width:100%; margin-top:20px;">ยืนยัน</button>
+    </div>
+
+    <script>
+      const confirmBtn = document.getElementById("confirmBtn");
+      const popup1 = document.getElementById("popup1");
+      const popup2 = document.getElementById("popup2");
+
+      confirmBtn.addEventListener("click", () => {
+        popup1.classList.remove("active"); // ซ่อน popup1
+        popup2.classList.add("active");   // แสดง popup2
+      });
+    </script>
+  </body>
+</html>
