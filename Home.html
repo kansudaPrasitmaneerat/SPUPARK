@@ -225,7 +225,7 @@
         font-weight: bold;
         color: #222;
         box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-        margin-top: 80px;
+        margin-top: 30px;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
@@ -261,6 +261,37 @@
         justify-content: center;
         align-items: center;
         z-index: 1000;
+      }
+      .cancel-btn {
+        width: 100%;
+        max-width: 440px;
+        margin: 0 auto;
+        display: block;
+        margin-top: -35px;
+        margin-right: 0;
+
+        background: linear-gradient(90deg, #ffbebe, #ff4d4d);
+        color: white;
+        border: none;
+        padding: 15px 20px;
+        font-size: 22px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        text-align: center;
+
+        box-shadow: 0px 6px 18px rgba(255, 77, 77, 0.45);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .cancel-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0px 10px 25px rgba(255, 77, 77, 0.55);
+
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     </style>
   </head>
@@ -342,6 +373,8 @@
         <span>12/200</span>
         <img src="./image/scooter.png" alt="car" />
       </div>
+
+        <button class="cancel-btn">ยกเลิก</button>
     </section>
 
     <!-- Popup Overlay -->
